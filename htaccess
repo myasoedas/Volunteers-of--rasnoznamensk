@@ -1,0 +1,40 @@
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+DirectoryIndex page10196528.html
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^main$ page10196528.html [NC]
+RewriteRule ^main/$ page10196528.html [NC]
+
+RewriteRule ^footer$ page10196875.html [NC]
+RewriteRule ^footer/$ page10196875.html [NC]
+
+RewriteRule ^header$ page10196885.html [NC]
+RewriteRule ^header/$ page10196885.html [NC]
+
+RewriteRule ^forma-ocenki-zdorovjya$ page10312003.html [NC]
+RewriteRule ^forma-ocenki-zdorovjya/$ page10312003.html [NC]
+
+RewriteRule ^policy$ page10339763.html [NC]
+RewriteRule ^policy/$ page10339763.html [NC]
+
+RewriteRule ^news$ page10347870.html [NC]
+RewriteRule ^news/$ page10347870.html [NC]
+
+RewriteRule ^members/ ma_start.html [NC]
+
+RewriteRule ^favicon.ico$ https://static.tildacdn.com/tild3762-6165-4437-a135-363066613531/favicon.ico [R=302,L]
+
+<IfModule mod_headers.c>
+	Header set X-Content-Type-Options nosniff
+	Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
